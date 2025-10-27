@@ -1,0 +1,8 @@
+{
+  "servers": {
+    "dynamics_mcp": {
+      "command": "python",
+      "args": ["server.py"],
+    }
+  }
+}
