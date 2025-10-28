@@ -69,9 +69,8 @@ def get_opportunities(top: int = 100) -> str:
     return get_opportunities_tool(top)
 
 @mcp.tool()
-def search_opportunities(search_term: str, max_results: int = 20) -> str:
+def search_opportunities_by_name(search_term: str, max_results: int = 20) -> str:
     """Search for opportunities in Dynamics 365 using partial name matching"""
-    from tools.opportunities import search_opportunities_by_name_tool
     return search_opportunities_by_name_tool(search_term, max_results)
 
 @mcp.tool()
