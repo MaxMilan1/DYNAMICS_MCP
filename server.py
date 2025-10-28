@@ -9,7 +9,7 @@ from tools.leads import search_leads_tool, create_lead_tool, search_leads_by_dat
 mcp = FastMCP("Dynamics 365")
 
 # Opportunity Tools
-@mcp.tool()
+@mcp.tool(name="create_opportunity")
 def create_opportunity(
     name: str,
     account_search_term: str,
@@ -58,55 +58,55 @@ def create_opportunity(
         xylos_effectiveto=xylos_effectiveto
     )
 
-@mcp.tool()
+@mcp.tool(name="get_opportunity_by_id")
 def get_opportunity(opportunity_id: str) -> str:
     """Retrieve an opportunity by ID from Dynamics 365"""
     return get_opportunity_tool(opportunity_id)
 
-@mcp.tool()
+@mcp.tool(name="list_opportunities")
 def get_opportunities(top: int = 100) -> str:
     """List recent opportunities from Dynamics 365"""
     return get_opportunities_tool(top)
 
-@mcp.tool()
+@mcp.tool(name="search_opportunities_by_name")
 def search_opportunities_by_name(search_term: str, max_results: int = 20) -> str:
     """Search for opportunities in Dynamics 365 using partial name matching"""
     return search_opportunities_by_name_tool(search_term, max_results)
 
-@mcp.tool()
+@mcp.tool(name="search_opportunities_by_date")
 def search_opportunities_by_date(start_date: str, end_date: str, max_results: int = 20) -> str:
     """Search for opportunities in Dynamics 365 within a date range"""
     return search_opportunities_by_date_tool(start_date, end_date, max_results)
 
-@mcp.tool()
+@mcp.tool(name="update_opportunity")
 def update_opportunity(opportunity_id: str, updates: dict) -> str:
     """Update an existing opportunity in Dynamics 365"""
     return update_opportunity_tool(opportunity_id, updates)
 
 # Contact Tools
-@mcp.tool()
+@mcp.tool(name="search_contacts")
 def search_contacts(search_term: str, max_results: int = 20) -> str:
     """Search for contacts in Dynamics 365 using partial name matching"""
     return search_contacts_tool(search_term, max_results)
 
 # Account Tools
-@mcp.tool()
+@mcp.tool(name="search_accounts")
 def search_accounts(search_term: str, max_results: int = 20) -> str:
     """Search for accounts in Dynamics 365 using partial name matching"""
     return search_accounts_tool(search_term, max_results)
 
 # Lead Tools
-@mcp.tool()
+@mcp.tool(name="search_leads")
 def search_leads(search_term: str, max_results: int = 20) -> str:
     """Search for leads in Dynamics 365 using partial name matching"""
     return search_leads_tool(search_term, max_results)
 
-@mcp.tool()
+@mcp.tool(name="search_leads_by_date")
 def search_leads_by_date(start_date: str, end_date: str, max_results: int = 20) -> str:
     """Search for leads in Dynamics 365 within a date range"""
     return search_leads_by_date_tool(start_date, end_date, max_results)
 
-@mcp.tool()
+@mcp.tool(name="create_lead")
 def create_lead(
     subject: str,
     firstname: str,
